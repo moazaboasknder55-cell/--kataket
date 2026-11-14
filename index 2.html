@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07509a">
+  <meta name="description" content="Ktakit - متجر ملابس أطفال. اطلب عبر واتساب.">
+  <title>Ktakit | كتاكيت</title>
+  <style>
+    :root {
+      --blue: #07509a;
+      --blue-dark: #06366b;
+      --yellow: #ffd52e;
+      --ink: #18324b;
+      --muted: #68798a;
+      --bg: #f5f8fc;
+      --white: #fff;
+      --radius: 20px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, 92%); margin: auto; }
+    header {
+      background: var(--blue);
+      color: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 4px 18px #082c5225;
+    }
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding: 12px 0;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 27px; }
+    .chick {
+      width: 46px; height: 46px; border-radius: 50%;
+      display: grid; place-items: center; background: var(--yellow);
+      color: var(--blue-dark); font-size: 27px;
+    }
+    .brand small { display: block; font-size: 12px; font-weight: 500; color: #e8f2ff; }
+    nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    nav a { font-size: 14px; font-weight: bold; color: #fff; }
+    nav a:hover { color: var(--yellow); }
+    .hero {
+      background: linear-gradient(130deg, var(--blue), var(--blue-dark));
+      color: white; text-align: center; padding: 68px 16px 74px;
+      position: relative; overflow: hidden;
+    }
+    .hero:after {
+      content: "🐥"; position: absolute; left: 5%; bottom: -25px;
+      font-size: 130px; opacity: .13; transform: rotate(-12deg);
+    }
+    .hero h1 { margin: 0 0 12px; font-size: clamp(30px, 5vw, 52px); }
+    .hero p { margin: 0 auto 24px; max-width: 620px; color: #e7f1ff; font-size: 18px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 0; border-radius: 13px; padding: 12px 21px;
+      background: var(--yellow); color: var(--blue-dark); font-weight: 900;
+      cursor: pointer; transition: .2s;
+    }
+    .btn:hover { transform: translateY(-2px); filter: brightness(.98); }
+    .btn.whatsapp { background: #159653; color: white; }
+    section { padding: 42px 0; }
+    .section-title { text-align: center; margin: 0 0 8px; color: var(--blue); font-size: 29px; }
+    .section-subtitle { text-align: center; color: var(--muted); margin: 0 0 26px; }
+    .categories { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .category {
+      background: white; border-radius: var(--radius); padding: 25px 16px;
+      text-align: center; border-bottom: 5px solid var(--yellow);
+      box-shadow: 0 8px 25px #1234560c;
+    }
+    .category .emoji { font-size: 38px; }
+    .category h3 { color: var(--blue); margin: 8px 0 2px; }
+    .category p { color: var(--muted); margin: 0; font-size: 14px; }
+    .empty {
+      background: white; border: 2px dashed #d5e1ee; border-radius: var(--radius);
+      padding: 34px 18px; text-align: center; color: var(--muted);
+    }
+    .empty strong { display: block; color: var(--blue); font-size: 19px; margin-bottom: 5px; }
+    .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .info {
+      background: white; padding: 20px; border-radius: 16px;
+      box-shadow: 0 8px 25px #1234560c;
+    }
+    .info h3 { color: var(--blue); margin: 0 0 7px; }
+    .info p { margin: 0; color: var(--muted); }
+    footer { background: #062f5d; color: white; padding: 28px 0; text-align: center; }
+    footer p { margin: 5px 0; color: #e5effa; }
+    .footer-brand { color: var(--yellow); font-size: 23px; font-weight: 900; }
+    .floating {
+      position: fixed; bottom: 18px; left: 18px; z-index: 20;
+      background: #159653; color: white; padding: 13px 17px;
+      border-radius: 50px; font-weight: bold; box-shadow: 0 5px 20px #0003;
+    }
+    @media (max-width: 700px) {
+      .nav { justify-content: center; }
+      nav { justify-content: center; gap: 12px; }
+      .categories, .info-grid { grid-template-columns: 1fr; }
+      .hero { padding: 52px 14px 60px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Ktakit الصفحة الرئيسية">
+        <span class="chick">🐥</span>
+        <span>KTakit <small>كتاكيت — ملابس أطفال</small></span>
+      </a>
+      <nav aria-label="القائمة الرئيسية">
+        <a href="#home">الرئيسية</a>
+        <a href="#categories">الأقسام</a>
+        <a href="#collections">الكولكشنات</a>
+        <a href="#offers">العروض</a>
+        <a href="#contact">تواصل معنا</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <div class="hero">
+      <div class="container">
+        <h1>كل جديد لأطفالكم من كتاكيت 💛</h1>
+        <p>اختاروا إطلالة أطفالكم من كتاكيت، واستفسروا واطلبوا بسهولة عبر واتساب.</p>
+        <a class="btn" href="#categories">اكتشفوا الأقسام</a>
+      </div>
+    </div>
+
+    <section id="categories">
+      <div class="container">
+        <h2 class="section-title">تسوق حسب القسم</h2>
+        <p class="section-subtitle">اختار القسم المناسب لطفلك</p>
+        <div class="categories">
+          <article class="category">
+            <div class="emoji">👦</div>
+            <h3>ملابس أولاد</h3>
+            <p>تشكيلات الأولاد — المنتجات تُضاف قريبًا</p>
+          </article>
+          <article class="category">
+            <div class="emoji">👧</div>
+            <h3>ملابس بنات</h3>
+            <p>تشكيلات البنات — المنتجات تُضاف قريبًا</p>
+          </article>
+          <article class="category">
+            <div class="emoji">🧸</div>
+            <h3>ملابس رضّع</h3>
+            <p>تشكيلات الرضّع — المنتجات تُضاف قريبًا</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="collections">
+      <div class="container">
+        <h2 class="section-title">أحدث الكولكشنات</h2>
+        <p class="section-subtitle">تابعوا كل جديد من كتاكيت</p>
+        <div class="empty">
+          <strong>قريبًا نعرض أحدث الكولكشنات</strong>
+          سيتم إضافة الصور والتفاصيل بعد اعتماد المنتجات.
+        </div>
+      </div>
+    </section>
+
+    <section id="offers">
+      <div class="container">
+        <h2 class="section-title">العروض والتخفيضات</h2>
+        <p class="section-subtitle">عروض كتاكيت المعلنة فقط</p>
+        <div class="empty">
+          <strong>لا توجد عروض مضافة حاليًا</strong>
+          تابعونا لمعرفة العروض الجديدة فور الإعلان عنها.
+        </div>
+      </div>
+    </section>
+
+    <section id="products">
+      <div class="container">
+        <h2 class="section-title">منتجاتنا</h2>
+        <p class="section-subtitle">كل منتج سيظهر بصورته وسعره ومقاساته المتاحة</p>
+        <div class="empty">
+          <strong>المنتجات قيد الإضافة</strong>
+          لم تتم إضافة أي منتجات غير مؤكدة. عند تجهيز بيانات المنتج ستظهر صورته واسمه وسعره ومقاساته وزر الطلب عبر واتساب.
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">زورونا أو تواصلوا معنا</h2>
+        <p class="section-subtitle">يسعدنا استقبال استفساراتكم وطلباتكم</p>
+        <div class="info-grid">
+          <article class="info">
+            <h3>📍 العنوان</h3>
+            <p>الإسكندرية، العامرية، شارع مسجد الشرقاوي بجوار محلات أبو أسكندر.</p>
+          </article>
+          <article class="info">
+            <h3>🕒 مواعيد العمل</h3>
+            <p>يوميًا من ١١ صباحًا إلى ١١ مساءً.</p>
+          </article>
+          <article class="info">
+            <h3>🚚 التوصيل</h3>
+            <p>داخل الإسكندرية فقط، ومصاريف الشحن تُحدد حسب المنطقة.</p>
+          </article>
+        </div>
+        <p style="text-align:center;margin-top:24px">
+          <a class="btn whatsapp" href="https://wa.me/201275542947" target="_blank" rel="noopener">تواصل معنا على واتساب: 01275542947</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-brand">🐥 KTakit | كتاكيت</div>
+      <p>ملابس أطفال — طلبات واستفسارات عبر واتساب</p>
+      <p>© <span id="year"></span> Ktakit. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <a class="floating" href="https://wa.me/201275542947" target="_blank" rel="noopener">واتساب 💬</a>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
